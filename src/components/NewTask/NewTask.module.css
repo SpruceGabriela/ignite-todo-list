@@ -1,0 +1,51 @@
+.container {
+    width: 100%;
+    max-width: 736px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: -15%;
+}
+
+.newTask {
+    width: 100%;
+    height: 54px;
+    background: #262626;
+    border: 1px solid #0D0D0D;
+    border-radius: 8px;
+    margin-right: 8px;
+    padding-left: 16px;
+    color: #808080;
+}
+
+.newTask::placeholder {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: #808080;
+}
+
+.create {
+    width: 90px;
+    background: #1E6F9F;
+    border-radius: 8px;
+    border: none;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 140%;
+    color: #F2F2F2;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* mobile */
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 80%;
+    }
+}
