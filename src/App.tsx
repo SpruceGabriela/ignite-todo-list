@@ -1,10 +1,11 @@
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
+import "./index.css"
 
 const App = () => {
   return (
-    <div className="App">
+    <main className="App">
       <Header />
-    </div>
+    </main>
   );
 }
 
