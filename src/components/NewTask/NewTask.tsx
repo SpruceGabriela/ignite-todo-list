@@ -5,10 +5,10 @@ const NewTask = () => {
 	return (
 		<section className={styles.container}>
 			<input className={styles.newTask} type="text" placeholder="Adicione uma nova tarefa" />
-            <button className={styles.create}>
-                <span>Criar</span>
-                <Plus />
-            </button>
+				<button className={styles.create}>
+					<span>Criar</span>
+					<Plus />
+				</button>
 		</section>
 	);
 };
