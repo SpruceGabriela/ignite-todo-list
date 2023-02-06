@@ -1,4 +1,4 @@
-import EmptyState from "../EmptyState";
+import Task from "../Task";
 import styles from "./MainContainer.module.css";
 
 const MainContainer = () => {
@@ -23,7 +23,7 @@ const MainContainer = () => {
             </span>
           </div>
         </header>
-        <EmptyState />
+        <Task />
       </section>
 		</main>
 	);
