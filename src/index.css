@@ -14,5 +14,6 @@ code {
 
 .App {
   background-color: #1A1A1A;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
 }
