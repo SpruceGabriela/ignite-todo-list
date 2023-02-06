@@ -1,6 +1,7 @@
+import EmptyState from "../EmptyState";
 import styles from "./MainContainer.module.css";
 
-const Header = () => {
+const MainContainer = () => {
 	return (
 		<main className={styles.main}>
       <section className={styles.wrapper}>
@@ -22,9 +23,10 @@ const Header = () => {
             </span>
           </div>
         </header>
+        <EmptyState />
       </section>
 		</main>
 	);
 };
 
-export default Header;
+export default MainContainer;
