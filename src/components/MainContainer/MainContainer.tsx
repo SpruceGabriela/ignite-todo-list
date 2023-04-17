@@ -1,32 +1,30 @@
+import { useSelector } from "react-redux";
 import Task from "../Task";
 import styles from "./MainContainer.module.css";
+import { RootState } from "../../redux/store";
 
 const MainContainer = () => {
-	return (
-		<main className={styles.main}>
+  const todos = useSelector((state: RootState) => state.items);
+
+  return (
+    <main className={styles.main}>
       <section className={styles.wrapper}>
         <header className={styles.header}>
           <div className={styles.info}>
-            <h3 className={styles.created}>
-              Tarefas Criadas
-            </h3>
-            <span className={styles.counter}>
-              0
-            </span>
+            <h3 className={styles.created}>Tarefas Criadas</h3>
+            <span className={styles.counter}>{todos.length}</span>
           </div>
           <div className={styles.info}>
-            <h3 className={styles.done}>
-              Concluídas
-            </h3>
-            <span className={styles.counter}>
-              0
-            </span>
+            <h3 className={styles.done}>Concluídas</h3>
+            <span className={styles.counter}>0</span>
           </div>
         </header>
-        <Task />
+        {todos.length > 0
+          ? todos.map(({ id, value }) => <Task key={id} name={value} id={id} />)
+          : null}
       </section>
-		</main>
-	);
+    </main>
+  );
 };
 
 export default MainContainer;
