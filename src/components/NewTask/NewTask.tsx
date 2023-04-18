@@ -19,8 +19,13 @@ const NewTask = () => {
         task: value,
       })
     );
-
     setValue("");
+  };
+
+  const onEnterPress = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter") {
+      onSubmit();
+    }
   };
 
   return (
@@ -33,8 +38,13 @@ const NewTask = () => {
         onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
           setValue(event?.target.value)
         }
+        onKeyDown={onEnterPress}
       />
-      <button className={styles.create} onClick={onSubmit}>
+      <button
+        className={styles.create}
+        onClick={onSubmit}
+        disabled={value === ""}
+      >
         <span>Criar</span>
         <Plus />
       </button>
