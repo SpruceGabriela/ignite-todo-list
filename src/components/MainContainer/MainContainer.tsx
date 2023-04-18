@@ -5,6 +5,7 @@ import { RootState } from "../../redux/store";
 
 const MainContainer = () => {
   const todos = useSelector((state: RootState) => state.items);
+  const counter = todos.filter((task) => task.isChecked === true).length;
 
   return (
     <main className={styles.main}>
@@ -16,11 +17,13 @@ const MainContainer = () => {
           </div>
           <div className={styles.info}>
             <h3 className={styles.done}>Concluídas</h3>
-            <span className={styles.counter}>0</span>
+            <span className={styles.counter}>{counter}</span>
           </div>
         </header>
         {todos.length > 0
-          ? todos.map(({ id, value }) => <Task key={id} name={value} id={id} />)
+          ? todos.map(({ id, value, isChecked }) => (
+              <Task key={id} name={value} id={id} isChecked={isChecked} />
+            ))
           : null}
       </section>
     </main>

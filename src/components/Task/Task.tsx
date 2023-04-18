@@ -1,19 +1,28 @@
 import { useDispatch } from "react-redux";
 import Trash from "../../assets/Trash";
 import styles from "./Task.module.css";
-import { deleteTask } from "../../redux/taskSlice";
+import { deleteTask, toggleCheck } from "../../redux/taskSlice";
 
 interface TaskProps {
   name: string;
   id: number;
+  isChecked: boolean;
 }
 
-const Task: React.FC<TaskProps> = ({ name, id }) => {
+const Task: React.FC<TaskProps> = ({ name, id, isChecked }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
     dispatch(
       deleteTask({
+        id: id,
+      })
+    );
+  };
+
+  const handleToggleCheck = () => {
+    dispatch(
+      toggleCheck({
         id: id,
       })
     );
@@ -25,10 +34,12 @@ const Task: React.FC<TaskProps> = ({ name, id }) => {
         <input
           className={styles.checkbox}
           type="checkbox"
-          id="task"
-          name="taskName"
+          id={id.toString()}
+          name={name}
+          onChange={handleToggleCheck}
+          checked={isChecked}
         />
-        <label className={styles.checkboxLabel} htmlFor="task"></label>
+        <label className={styles.checkboxLabel} htmlFor={id.toString()}></label>
         <p className={styles.name}>{name}</p>
       </div>
       <button className={styles.delete} onClick={handleDelete}>
